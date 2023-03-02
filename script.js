@@ -33,7 +33,7 @@ game.addEventListener("click", function (e) {
   atotal.innerText = num;
 });
 var z = Math.floor(Math.random() * 100);
-console.log(z);
+// console.log(z);
 let count = 0;
 var guess = 0;
 var check = document.getElementById("check");
@@ -48,7 +48,7 @@ var y = document.querySelector(".guess");
 check.addEventListener("click", function () {
   let num_guess = document.getElementById("num_guess").value;
   if (num_guess <= 0) {
-    alert("Bhosdike shi number enter kr");
+    alert("Please Enter a Positive Value");
   } else {
     let temp = checknumber(num_guess);
     console.log(`${temp} ${num_guess}`);
@@ -63,7 +63,15 @@ check.addEventListener("click", function () {
       console.log("Guessed number is greater than the random number");
     } else {
       x.innerText = " equal";
-      skore.innerText = `${100 - count}`;
+      if(diff=="Easy"){
+        skore.innerText = `${100 - 2*count}`;
+      }
+      else if(diff=="Medium"){
+        skore.innerText = `${100 - 1.5*count}`;
+      }
+      else{
+        skore.innerText = `${100 - 1.5*count}`;
+      }
       play[0].style.display = "none";
       win.style.display = "inline-block";
       // console.log(y.innerText)
