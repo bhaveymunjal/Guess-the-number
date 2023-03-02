@@ -1,3 +1,5 @@
+let container1 = document.getElementsByClassName('container1')
+let play = document.getElementsByClassName('play')
 var player = "";
 var diff = "";
 let num = 10;
@@ -7,10 +9,16 @@ let game = document.getElementById("start_game");
 game.addEventListener("click", function (e) {
   // var submit = true;
   player = document.getElementById("player").value;
-  if (player == "") err.style.display = "block";
-  else if (player != "") err.style.display = "none";
-  var ele = document.getElementsByName("difficulty");
+  if (player == "") {
+    err.style.display = "block";
+  }
 
+  else if (player != ""){
+    err.style.display = "none";
+    var ele = document.getElementsByName("difficulty");
+    container1[0].style.display = "none";
+    play[0].style.display = "flex"
+  }
   for (i = 0; i < ele.length; i++) {
     if (ele[i].checked) {
       diff = ele[i].value;
@@ -56,10 +64,13 @@ check.addEventListener("click", function () {
     } else {
       x.innerText = " equal";
       skore.innerText = `${100 - count}`;
+      play[0].style.display = "none";
+      win.style.display = "inline-block";
       // console.log(y.innerText)
       // console.log("Guessed number is Equal to the random number");
       // console.log(`Your score is ${100-count}`)
     }
+    
     y.style.display = "block";
     // y.innerText = tempo;
     count++;
@@ -67,8 +78,10 @@ check.addEventListener("click", function () {
 
     num--;
     aleft.innerText = `${num}`;
-    if (num == 0) {
+    if (num == 0 && temp!=3) {
       console.log("Game Over");
+      play[0].style.display = "none";
+      lose.style.display = "inline-block";
     }
   }
 });
@@ -95,8 +108,6 @@ close.forEach((item) => {
 
 
 let start = document.getElementById("start_game")
-let container1 = document.getElementsByClassName('container1')
-let play = document.getElementsByClassName('play')
 start.addEventListener('click', ()=>{
   container1.removeClass('.container')
   container1.addClass('play')

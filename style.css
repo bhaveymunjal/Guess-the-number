@@ -12,12 +12,18 @@ body{
 .container1{
     display: flex;
     /* border: 2px solid black; */
-    margin: 150px auto;
+    /* margin: 150px auto; */
     flex-direction: column;
     width: 45%;
     padding: 20px;
     background-color:antiquewhite;
     border-radius: 20px;
+
+    margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 h1{
     text-align: center;
@@ -117,15 +123,22 @@ h3{
     font-weight:700;
 }
 .play{
+    display: none;
     justify-content: space-between;
     height: 19vw;
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
     background-color: antiquewhite;
-    margin: 150px auto;
+    /* margin: 150px auto; */
     width: 25%;
     padding: 20px 20px;
     border-radius: 20px;
+
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 .guess{
     display: none;
@@ -143,10 +156,19 @@ input[type="number"]{
     font-weight: bold;
 }
 .win{
+    display: none;
     background-color:antiquewhite;
-    display: inline-block;
+    /* display: inline-block; */
     padding: 20px;
     border-radius: 15px;
+    text-align: center;
+
+    margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
 }
 .win p{
     font-size: 25px;
@@ -155,10 +177,17 @@ input[type="number"]{
     margin: 5px 20px 5px 0px;
 }
 .lose{
+    display: none;
     background-color:antiquewhite;
-    display: inline-block;
+    /* display: inline-block; */
     padding: 20px;
     border-radius: 15px;
+
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 .lose p{
     font-size: 25px;
