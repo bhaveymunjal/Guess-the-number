@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container1">
+      <h1>Guess The Correct Number</h1>
+      <div class="container">
+        <div class="image">
+          <img src="Asset 1.svg" alt="" />
+        </div>
+
+        <div class="start">
+          <input type="text" name="player" id="player"  placeholder="Enter Your Name" />
+          <div class="error">
+            <p>Kya baat maa-baap ne koi naam nhi dia kya😐</p>
+          </div>
+          <h3>Select Difficulty</h3>
+          <div class="difficulty">
+            <input type="radio" id="easy" checked="checked" name="difficulty" value="Easy"/>
+            <label for="easy">Easy</label>
+            <input type="radio" id="medium" name="difficulty" value="Medium"/>
+            <label for="medium">Medium</label>
+            <input type="radio" id="hard" name="difficulty" value="Hard"/>
+            <label for="hard">Hard</label>
+          </div>
+          <button id="start_game">Start Game</button>
+        </div>
+      </div>
+    </div>
+    <div class="play">
+      <h1>Guess the number</h1>
+      <p class="guess">Your guess is <span id="gusesse"></span></p>
+      <input type="number" name = "num_guess" id="num_guess" placeholder="Enter the guess">
+      <button id="check">Check</button>
+      <p class="leftattempt">
+        Attempts Left = <span id="aleft">10</span>
+      </p>
+      <p class="totalattempt">
+        Total Attempts = <span id="atotal">10</span>
+      </p>
+    </div>
+    <div class="win">
+      <p>Congratulations, You won the game</p>
+      <p>Your Score is <span id="skore"></span></p>
+      <button class="playagain">Play Again</button>
+      <button class="close">Close</button>
+    </div>
+    <div class="lose">
+      <p>Sorry, You lost the game</p>
+      <p>Better Luck next time</p>
+      <button class="playagain">Play Again</button>
+      <button class="close">Close</button>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
