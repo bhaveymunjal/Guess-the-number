@@ -1,5 +1,5 @@
-let container1 = document.getElementsByClassName('container1')
-let play = document.getElementsByClassName('play')
+let container1 = document.getElementsByClassName("container1");
+let play = document.getElementsByClassName("play");
 var player = "";
 var diff = "";
 let num = 10;
@@ -11,13 +11,11 @@ game.addEventListener("click", function (e) {
   player = document.getElementById("player").value;
   if (player == "") {
     err.style.display = "block";
-  }
-
-  else if (player != ""){
+  } else if (player != "") {
     err.style.display = "none";
     var ele = document.getElementsByName("difficulty");
     container1[0].style.display = "none";
-    play[0].style.display = "flex"
+    play[0].style.display = "flex";
   }
   for (i = 0; i < ele.length; i++) {
     if (ele[i].checked) {
@@ -40,53 +38,56 @@ var check = document.getElementById("check");
 var aleft = document.getElementById("aleft");
 var atotal = document.getElementById("atotal");
 let skore = document.getElementById("skore");
-
+let tries = [];
 let playagain = Array.from(document.getElementsByClassName("playagain"));
 let close = Array.from(document.getElementsByClassName("close"));
 var x = document.querySelector("#gusesse");
 var y = document.querySelector(".guess");
 check.addEventListener("click", function () {
   let num_guess = document.getElementById("num_guess").value;
+  tries.push(num_guess);
   if (num_guess <= 0) {
     alert("Please Enter a Positive Value");
   } else {
     let temp = checknumber(num_guess);
     console.log(`${temp} ${num_guess}`);
     let tempo = y.innerText;
-    if (temp == 1) {
-      x.innerText = " low";
-      // console.log(y.innerText)
-      console.log("Guessed number is less than the random number");
-    } else if (temp == 2) {
-      x.innerText = " high";
-      // console.log(y.innerText)
-      console.log("Guessed number is greater than the random number");
+    if (tries.length > 1 && num_guess == tries[tries.length - 2]) {
+      alert("You entered the same number again");
     } else {
-      x.innerText = " equal";
-      if(diff=="Easy"){
-        skore.innerText = `${100 - 2*count}`;
+      if (temp == 1) {
+        x.innerText = " low";
+        // console.log(y.innerText)
+        console.log("Guessed number is less than the random number");
+      } else if (temp == 2) {
+        x.innerText = " high";
+        // console.log(y.innerText)
+        console.log("Guessed number is greater than the random number");
+      } else {
+        x.innerText = " equal";
+        if (diff == "Easy") {
+          skore.innerText = `${100 - 2 * count}`;
+        } else if (diff == "Medium") {
+          skore.innerText = `${100 - 1.5 * count}`;
+        } else {
+          skore.innerText = `${100 - 1.5 * count}`;
+        }
+        play[0].style.display = "none";
+        win.style.display = "inline-block";
       }
-      else if(diff=="Medium"){
-        skore.innerText = `${100 - 1.5*count}`;
-      }
-      else{
-        skore.innerText = `${100 - 1.5*count}`;
-      }
-      play[0].style.display = "none";
-      win.style.display = "inline-block";
       // console.log(y.innerText)
       // console.log("Guessed number is Equal to the random number");
       // console.log(`Your score is ${100-count}`)
+      y.style.display = "block";
+      // y.innerText = tempo;
+      count++;
+      num--;
+      aleft.innerText = `${num}`;
     }
-    
-    y.style.display = "block";
-    // y.innerText = tempo;
-    count++;
+
     // console.log(guess)
 
-    num--;
-    aleft.innerText = `${num}`;
-    if (num == 0 && temp!=3) {
+    if (num == 0 && temp != 3) {
       console.log("Game Over");
       play[0].style.display = "none";
       lose.style.display = "inline-block";
@@ -114,10 +115,9 @@ close.forEach((item) => {
   });
 });
 
-
-let start = document.getElementById("start_game")
-start.addEventListener('click', ()=>{
-  container1.removeClass('.container')
-  container1.addClass('play')
-  // container1.parentNode.removeChild(container1)
-})
+// let start = document.getElementById("start_game");
+// start.addEventListener("click", () => {
+//   container1.removeClass(".container");
+//   container1.addClass("play");
+//   // container1.parentNode.removeChild(container1)
+// });

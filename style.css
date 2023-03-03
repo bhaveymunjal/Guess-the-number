@@ -255,11 +255,8 @@ input[type="number"]{
     }
 }
 @media only screen and (max-width:500px){
-    *{
-        font-size: 10px;
-    }
     h1{
-        font-size: 20px;
+        font-size: 1.5em;
     }
     .container1{
         width: 80%;
